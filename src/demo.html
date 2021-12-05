@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <table class="grid">
+        <thead class="header">
+            <tr class="header-row">
+                <td class="column-item">Codigo</td>
+                <td class="column-item">Descripcion</td>
+            </tr>
+        </thead>
+        <tbody class="body">
+            <tr class="body-row">
+                <td class="column-item">1</td>
+                <td class="column-item">Peru</td>
+            </tr>
+            <tr class="body-row">
+                <td class="column-item">2</td>
+                <td class="column-item">Chile</td>
+            </tr>
+            <tr class="body-row">
+                <td class="column-item">3</td>
+                <td class="column-item">xxx</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <table class="grid">
+        <thead class="grid-header">
+            <tr class="header-row">
+                <td class="column-item">Codigo</td>
+                <td class="column-item">Descripcion</td>
+            </tr>
+        </thead>
+        <tbody class="grid-body">
+            <!-- <tr class="body-row">
+                <td class="column-item">1</td>
+                <td class="column-item">Peru</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <style>
+        .column-item {
+            border: 0.5px solid red;
+        }
+
+        .header {
+            background-color: pink;
+        }
+    </style>
+
+</body>
+
+<script>
+
+    const dataPaises = [
+        { codPais: 1, description: 'Peru' },
+        { codPais: 2, description: 'Venezuela' },
+        { codPais: 3, description: 'Paraguay' },
+        { codPais: 4, description: 'CHile' },
+        { codPais: 5, description: 'CHile' },
+        { codPais: 6, description: 'CHile' },
+        { codPais: 7, description: 'CHile' },
+        { codPais: 8, description: 'CHile' },
+        { codPais: 9, description: 'CHile' },
+        { codPais: 10, description: 'CHile' },
+    ];
+
+    const gridBody = document.querySelector('.grid-body');
+    const bodyRow = document.createElement('tr');
+
+    dataPaises.forEach((pais, index) => {
+        console.log('index = ', index);
+        const columnItem1 = document.createElement('td');
+        const textContent1 = document.createTextNode(pais.codPais);
+        columnItem1.appendChild(textContent1);
+        bodyRow.appendChild(columnItem1);
+    }
+    );
+
+    dataPaises.forEach((pais, index) => {
+        console.log('index = ', index);
+        const columnItem2 = document.createElement('td');
+        const textContent2 = document.createTextNode(pais.description);
+        columnItem2.appendChild(textContent2);
+        bodyRow.appendChild(columnItem2);
+    }
+    );
+    // const columnItem1 = document.createElement('td');
+    // const textContent1 = document.createTextNode(codPais);
+    // columnItem1.appendChild(textContent1);
+
+    // const columnItem2 = document.createElement('td');
+    // const textContent2 = document.createTextNode(description);
+    // columnItem2.appendChild(textContent2);
+
+    // bodyRow.appendChild(columnItem1);
+    // bodyRow.appendChild(columnItem2);
+
+
+    gridBody.appendChild(bodyRow);
+
+
+
+
+    function createTable(tableData) {
+        var table = document.createElement('table');
+        var row = {};
+        var cell = {};
+
+        tableData.forEach(function (rowData) {
+            row = table.insertRow(-1); // [-1] for last position in Safari
+            rowData.forEach(function (cellData) {
+                cell = row.insertCell();
+                cell.textContent = cellData;
+            });
+        });
+        document.body.appendChild(table);
+    }
+
+
+</script>
+
+</html>

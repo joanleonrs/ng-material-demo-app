@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Build a table</title>
+</head>
+<body>
+<table>
+<!-- here goes our data! -->
+</table>
+</body>
+<script>
+
+const saludo = 'HOLA';
+    // `$
+
+let mountains = [
+  { name: `Monte Falco ${saludo}`, height: 1658, place: `Parco Foreste Casentinesi ${saludo}` },
+  { name: `Monte Falterona ${saludo}`, height: 1654, place: `Parco Foreste Casentinesi ${saludo}` },
+  { name: `Poggio Scali ${saludo}`, height: 1520, place: `Parco Foreste Casentinesi ${saludo}` },
+  { name: `Pratomagno ${saludo}`, height: 1592, place: `Parco Foreste Casentinesi ${saludo}` },
+  { name: `Monte Amiata ${saludo}`, height: 1738, place: `Siena` }
+];
+
+function generateTableHead(table, data) {
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
+function generateTable(table, data) {
+  for (let element of data) {
+    let row = table.insertRow();
+    for (key in element) {
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+
+let table = document.querySelector("table");
+let data = Object.keys(mountains[0]);
+generateTableHead(table, data);
+generateTable(table, mountains);
+
+</script>
+</html>

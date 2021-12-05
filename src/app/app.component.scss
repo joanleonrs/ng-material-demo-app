@@ -1,0 +1,79 @@
+
+$main-color : #f7a02c;
+$white: white;
+$secondaryBackground: whitesmoke;
+
+.custom-container {
+  padding: 24px;
+}
+
+.mat-header-cell {
+  padding: 8px;
+  background-color: $main-color;
+  color: white;
+  border-left: solid 0.15px $secondaryBackground;
+  text-align: center;
+  width: 400px;
+}
+
+.mat-cell {
+  padding: 12px;
+  border-left: solid 0.5px $secondaryBackground;
+  text-align: center;
+  width: 400px;
+}
+
+tr:hover {
+  background: $secondaryBackground;
+}
+
+tr:active {
+  background: #efefef;
+}
+
+.table-container {
+  height: 800px;
+  // width: 950px;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  // width: 1200px;
+  width: 100%;
+}
+
+td.mat-column-options {
+  width: 20px;
+  padding-right: 8px;
+}
+
+th.mat-column-position,
+td.mat-column-position {
+  padding-left: 8px;
+}
+
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}
+
+
+//Button Icon
+.options-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}

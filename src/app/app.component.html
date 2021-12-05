@@ -1,1 +1,94 @@
-<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<div class="custom-container">
+
+  <div class="demo-button-container">
+    <button mat-raised-button (click)="addData()" class="demo-button">
+      Agregar respuesta
+    </button>
+    <button
+        mat-raised-button
+        [disabled]="!dataToDisplay.length"
+        (click)="removeData()"
+        class="demo-button">
+      Remover respuesta
+    </button>
+  </div>
+
+  <div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Nro </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer1">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(0)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer2">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(1)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer2}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer3">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(2)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer3}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer4">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(3)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer4}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer5">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(4)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer5}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer6">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(5)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer6}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer7">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(6)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer7}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer8">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(7)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer8}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer9">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(8)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer9}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="answer10">
+        <th mat-header-cell *matHeaderCellDef> {{getQuestionDescriptionByIndex(9)}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.answer10}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="options" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td class="mat-column-options" mat-cell *matCellDef="let element">
+          <div class="options-container">
+            <button mat-icon-button matTooltip="Editar respuestas">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="secondary" matTooltip="Eliminar respuestas">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedRows"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedRows;"></tr>
+    </table>
+  </div>
+</div>
+
+<!-- <app-demo-root></app-demo-root> -->
